@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"net"
+	"time"
 )
 
 func panicOnErr(msg string, err error) {
@@ -50,6 +51,8 @@ func main() {
 				if bytes.Compare(reply, data)!=0 {
 					log.Fatalln("This is not an echo server: "+string(reply))
 				}
+				
+				time.Sleep(time.Second * 1)
 			}
 		}()
 	}
